@@ -1,0 +1,188 @@
+.wheel_light_A_anima div,
+.wheel_light_B_anima div {
+  -webkit-animation-name: wheel_light_A;
+          animation-name: wheel_light_A;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  -webkit-animation-timing-function: steps(4);
+          animation-timing-function: steps(4);
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+@-webkit-keyframes wheel_light_A {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(-45deg);
+            transform: rotateZ(-45deg);
+  }
+}
+@keyframes wheel_light_A {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(-45deg);
+            transform: rotateZ(-45deg);
+  }
+}
+.wheel_content_anima div {
+  -webkit-transition: -webkit-transform 7s cubic-bezier(0.31, 0.63, 0, 1.04) 0s;
+          transition: transform 7s cubic-bezier(0.31, 0.63, 0, 1.04) 0s;
+}
+.winning_anima {
+  -webkit-animation-name: boxshow;
+          animation-name: boxshow;
+  -webkit-animation-duration: .8s;
+          animation-duration: .8s;
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.winning_anima img {
+  -webkit-animation-name: winningimg;
+          animation-name: winningimg;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+@-webkit-keyframes winningimg {
+  0% {
+    box-shadow: 0 0 0 #f1136d;
+  }
+  30% {
+    box-shadow: 0 0 34px #f1136d;
+  }
+  60% {
+    box-shadow: 0 0 29px #f1136d;
+  }
+  100% {
+    box-shadow: 0 0 0 #f1136d;
+  }
+}
+@keyframes winningimg {
+  0% {
+    box-shadow: 0 0 0 #f1136d;
+  }
+  30% {
+    box-shadow: 0 0 34px #f1136d;
+  }
+  60% {
+    box-shadow: 0 0 29px #f1136d;
+  }
+  100% {
+    box-shadow: 0 0 0 #f1136d;
+  }
+}
+@-webkit-keyframes boxshow {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
+@keyframes boxshow {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
+.text_inf {
+  -webkit-animation-name: text_inf;
+          animation-name: text_inf;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes text_inf {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+  10% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translate(0px, 10px);
+            transform: translate(0px, 10px);
+  }
+  90% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translate(0px, 10px);
+            transform: translate(0px, 10px);
+  }
+  100% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+}
+@keyframes text_inf {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+  10% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translate(0px, 10px);
+            transform: translate(0px, 10px);
+  }
+  90% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translate(0px, 10px);
+            transform: translate(0px, 10px);
+  }
+  100% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+}
+.follow_QR,
+.Share_bg {
+  -webkit-animation-name: boxshow;
+          animation-name: boxshow;
+  -webkit-animation-duration: .8s;
+          animation-duration: .8s;
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}

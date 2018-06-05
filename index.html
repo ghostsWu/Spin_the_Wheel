@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>"转"赏巴黎人之乐</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, height=device-height">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<link href="css/bacecss.css" rel="stylesheet" type="text/css">
+	<link href="css/game_wheel.css" rel="stylesheet" type="text/css">
+	<link href="css/wheel_animation.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- 活动规则 -->
+<header class="wheel_rules">
+	<a href="#">活动规则</a>
+</header>
+<!-- 标题图片 -->
+<section class="wheel_title stage_width">
+	<img src="images/game_title.png">
+</section>
+<!-- 转盘及用户分享按钮 -->
+<section class="wheel_game stage_width">
+	<ul>
+		<li class="wheel_bottom"><div><img src="images/wheel_bottom.png"></div></li>
+		<li class="wheel_light_A wheel_light_A_anima wheel_light_A_JS"><div><img src="images/wheel_light_A.png"></div></li>
+		<li class="wheel_content wheel_content_anima wheel_content_JS"><div><img src="images/wheel_content.png"></div></li>
+		<li class="wheel_light_B wheel_light_B_anima wheel_light_B_JS"><div><img src="images/wheel_light_B.png"></div></li>
+		<li class="wheel_pointer pointer_JS"></li>
+	</ul>
+	<p class="mychance">您今天还有 <span>5</span> 次抽奖机会!</p>
+	<div class="user_inf">
+		<div class="user_profile">
+			<img src="http://p3.music.126.net/2iIlyuUKcyee0x1v4TzXTg==/1375489058855837.jpg?param=62y62">
+			<p>Username</p>
+		</div>
+		<div class="Share_friends Share_friends_JS">
+			<p>邀请一位好友帮助<br>可额外获得 3 次抽奖机会</p>
+			<button>邀请好友</button>
+		</div>
+	</div>
+</section>
+<!-- 帮助好友列表 -->
+<section class="myfriends">
+	<p>已经有 <span>6</span> 位好友帮助过我</p>
+	<p>暂时还没有好友帮助我</p>
+	<ul class="stage_width">
+		<li><img src="http://p3.music.126.net/TRG-tGs098M83Oat7pI54Q==/5994537394864711.jpg?param=40y40"><p>Agust D</p></li>
+		<li><img src="http://p3.music.126.net/3-iAVS4XnAZ_dx16gQQwkA==/3412884110281507.jpg?param=40y40"><p>So Far Away</p></li>
+		<li><img src="http://p4.music.126.net/M7BZyhrQh3rgvgUMs6q6tA==/1409573914738725.jpg?param=40y40"><p>小半</p></li>
+		<li><img src="http://p3.music.126.net/LzC_7rvZoA_PXUMeZnQ0GQ==/3368903628058175.jpg?param=40y40"><p>Give It To Me</p></li>
+		<li><img src="http://p4.music.126.net/slpd09Tf5Ju82Mv-h8MP4w==/3440371884651965.jpg?param=40y40"><p>마지막 (The Last)</p></li>
+		<li><img src="http://p3.music.126.net/2iIlyuUKcyee0x1v4TzXTg==/1375489058855837.jpg?param=62y62"><p>Tony Montana</p></li>
+	</ul>
+	<P class="wheel_terms"><a href="#">条款与细则</a></P> 
+</section>
+<!-- 信息弹窗 -->
+<section class="activity_feedback">
+		<!-- 卡券弹窗 -->
+		<div class="winning winning_anima winning_JS">
+			<p>恭喜你获得</p>
+			<a href="#"><img class="stage_width" src="images/coupon.jpg"></a>
+			<a class="get_offer" href="#">点击获取卡券</a>
+			<button class="close_but close_feedback_JS"></button>
+		</div>
+		<!-- 公用文本弹窗 直接p带class插入，并定时5s后删除。-->
+		<!-- <p class="text_inf">你的抽奖机会已经用完了！邀请好友帮助你再获得更多机会！</p> -->
+		<!-- <p class="text_inf">你的抽奖机会已经用完了！邀请好友帮助你再获得更多机会！</p> -->
+
+		<!-- QR -->
+		<div class="follow_QR follow_QR_JS">
+			<img class="stage_width" src="http://img3.imgtn.bdimg.com/it/u=3348685420,3946343163&fm=21&gp=0.jpg">
+			<button class="close_but close_follow_QR_JS"></button>
+		</div>
+		<div class="Share_bg Share_bg_JS">
+		</div>
+
+
+</section>
+
+
+<script type="text/javascript">
+
+/////////转盘动画控制///////////
+
+//绑定点击事件
+document.querySelector(".pointer_JS").onclick=function(){
+
+	//卡券复位
+	document.querySelector(".winning_JS").style.display = "none";
+
+	//按钮移除点击
+	var pointer = document.querySelector(".pointer_JS");
+	pointer.className = pointer.className.replace(" pointer_JS","");
+
+	//中奖度数
+	var prize = 0;
+
+	//动画设定的旋转度数，为css时间内转3600度，角度在45°范围内随机
+	var deg = 0 - (3600 +  prize - randomNo(4,40)+ 22.5) ; // 22.5为转盘居中的修正量；
+
+	//抓取转盘
+	var wheel = document.querySelector(".wheel_content_JS div");
+
+	//抓取灯光动画时间；
+	var lightTime = window.getComputedStyle(document.querySelector(".wheel_light_A_JS div"),null).animationDuration;
+
+	//灯光加速
+	document.querySelector(".wheel_light_A_JS div").style.animationDuration = ".2s";
+	document.querySelector(".wheel_light_B_JS div").style.animationDuration = ".2s";
+	
+
+	//获取动画设定的时间
+	var animTime = window.getComputedStyle(wheel,null).transitionDuration.replace("s","") * 1000;
+
+	//转动转盘
+	wheel.style.transform = "rotateZ(" + deg + "deg)";
+
+	//转盘到达终点，并复位转盘，保持转盘已转动角度下，消除转盘动画的3600度数，中途要停用css过渡，消除后恢复过渡。
+	setTimeout(function(){
+		wheel.style.transitionDuration = "0s"
+		wheel.style.transform = "rotateZ(" +  (deg + 3600) + "deg)";
+
+		//弹出卡券
+		document.querySelector(".winning_JS").style.display = "block";
+
+		//灯光速度复位
+		document.querySelector(".wheel_light_A_JS div").style.animationDuration = lightTime;
+		document.querySelector(".wheel_light_B_JS div").style.animationDuration = lightTime;
+
+	},animTime + 100);
+
+	//复位转盘css过渡，跟上一个设置有100ms时间差。
+	setTimeout(function(){
+		wheel.style.transitionDuration = animTime / 1000 + "s";
+
+		//恢复按钮点击
+		pointer.className = pointer.className + " pointer_JS";
+	},animTime + 200)
+
+	//随机数生成器
+	function randomNo(min,max){return Math.floor(min+Math.random()*(max-min))}
+
+}
+
+//卡券页面点击关闭
+document.querySelector(".close_feedback_JS").onclick = function(){
+	document.querySelector(".winning_JS").style.display = "none";
+}
+
+// 诱导分享
+document.querySelector(".Share_friends_JS button").onclick = function(){
+	var share_bg = document.querySelector(".Share_bg_JS");
+	var share_display = window.getComputedStyle(share_bg,null).display;
+
+	//分享引导显示
+	share_bg.style.display = "block";
+
+	//点击分享引导显示
+	document.querySelector(".Share_bg_JS").onclick = function(){
+
+		//如果已经显示，就关闭
+		if (share_display = "block") {
+			share_bg.style.display = "none";
+		}
+	}
+
+}
+
+// 关注公众号二维码弹出测试
+document.querySelector(".user_profile").onclick = function(){
+	document.querySelector(".follow_QR_JS").style.display = "block";
+	document.querySelector(".close_follow_QR_JS").onclick = function(){
+		if ( window.getComputedStyle(document.querySelector(".follow_QR_JS"),null).display == "block") {
+			document.querySelector(".follow_QR_JS").style.display = "none";
+		}
+	}
+}
+
+
+
+</script>
+</body>
+</html>
